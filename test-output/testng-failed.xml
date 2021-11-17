@@ -5,9 +5,9 @@
     <classes>
       <class name="com.shadi.qa.tests.RegistrationBasicDetailsPageTest">
         <methods>
-          <include name="communityTest"/>
           <include name="setUp"/>
           <include name="tearDown"/>
+          <include name="gujaratiCommunityTest"/>
         </methods>
       </class> <!-- com.shadi.qa.tests.RegistrationBasicDetailsPageTest -->
     </classes>

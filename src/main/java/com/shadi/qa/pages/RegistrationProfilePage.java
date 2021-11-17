@@ -11,37 +11,20 @@ import com.shadi.qa.base.TestBase;
 
 public class RegistrationProfilePage extends TestBase {
 
-	@FindBy(name = "email")
-	WebElement email;
-
-	@FindBy(name = "password1")
-	WebElement password;
-
-	@FindBy(xpath = "Dropdown-control postedby_selector")
-	WebElement profileFor;
-
-	@FindBy(xpath = "//input[@name=\"gender\" and @value=\"Male\"]")
-	WebElement genderMale;
-
-	@FindBy(xpath = "//input[@name=\"gender\" and @value=\"Male\"]")
-	WebElement genderFemale;
-
-	@FindBy(xpath = "//button[contains(text(),'Next')]")
-	WebElement nextBtn;
-
-	RegistrationProfilePage() {
-		PageFactory.initElements(driver, this);
-	}
-
-	public void passingEmailID(String emailID) {
+	// define properties
+	public static void passingEmailID(String emailID) {
+		WebElement email = driver.findElement(By.name("email"));
 		email.sendKeys(emailID);
 	}
 
-	public void enteringPassword(String passwordvalue) {
+	public static void enteringPassword(String passwordvalue) {
+		WebElement password = driver.findElement(By.name("password1"));
 		password.sendKeys(passwordvalue);
 	}
 
-	public void selectProfileFor(String profileforvalue) {
+	public static void selectProfileFor(String profileforvalue) {
+		WebElement profileFor = driver.findElement(
+				By.xpath("//body/div[@id='__next']/div[13]/form[1]/div[2]/div[3]/div[1]/div[1]/div[2]/span[1]"));
 		profileFor.click();
 		List<WebElement> profileList = driver
 				.findElements(By.xpath("//div[@class=\"Dropdown-menu postedby_options\"]//div"));
@@ -60,9 +43,16 @@ public class RegistrationProfilePage extends TestBase {
 		}
 	}
 
-	public RegistrationBasicDetailsPage clickOnNextBtn() {
+	public static void clickOnGender() {
+		WebElement gender = driver.findElement(By.xpath("//input[@type='radio' and @value='Male']"));
+		gender.click();
+
+	}
+
+	public static void clickOnNextBtn() {
+		WebElement nextBtn = driver.findElement(By.xpath("//button[contains(text(),'Next')]"));
 		nextBtn.click();
-		return new RegistrationBasicDetailsPage();
+
 	}
 
 }
