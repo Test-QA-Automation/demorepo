@@ -30,7 +30,7 @@ public class TestBase {
 		}
 	}
 
-	// to initialize browser and application
+	// to initialize browser 
 	public static void initialization() {
 		String browserName = prop.getProperty("browser");
 
@@ -49,11 +49,6 @@ public class TestBase {
 		driver.manage().timeouts().pageLoadTimeout(TestUtil.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
 		driver.manage().timeouts().implicitlyWait(TestUtil.IMPLICIT_WAIT, TimeUnit.SECONDS);
 
-//		if (community.equals("marathi")) {
-//			driver.get(website);
-//		} else if (community.equals("gujarati")) {
-//			driver.get(website);
-//		}
 	}
 
 }
